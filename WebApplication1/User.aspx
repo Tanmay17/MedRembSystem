@@ -17,15 +17,14 @@
     <table width="80%" align="center">
       <tr>
         <td>
-          <asp:Button Text="Tab 1" BorderStyle="None" ID="Tab1" CssClass="Initial" runat="server"
+          <asp:Button Text="Apply " BorderStyle="None" ID="Tab1" CssClass="Initial" runat="server"
 
               OnClick="Tab1_Click" />
-          <asp:Button Text="Tab 2" BorderStyle="None" ID="Tab2" CssClass="Initial" runat="server"
+          <asp:Button Text="Check Status" BorderStyle="None" ID="Tab2" CssClass="Initial" runat="server"
 
               OnClick="Tab2_Click" />
-          <asp:Button Text="Tab 3" BorderStyle="None" ID="Tab3" CssClass="Initial" runat="server"
-
-              OnClick="Tab3_Click" />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href ="Logout.aspx" class="btn btn-default btn-flat">Sign out</a>
           <asp:MultiView ID="MainView" runat="server">
             <asp:View ID="View1" runat="server">
               <table style="width: 100%; border-width: 1px; border-color: #666; border-style: solid">
@@ -75,7 +74,9 @@
                 </tr>
                   <tr>
                       <td class="auto-style1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                          <asp:Button ID="Button1" runat="server" Text="Apply" Width="156px" />
+                          <asp:Button ID="Button1" runat="server" Text="Apply" Width="156px" OnClick="Button1_Click" style="height: 26px" />
+                          <br />
+                          <asp:Label ID="Label1" runat="server" ForeColor="#0000CC" Height="129px" style="margin-top: 73px" Visible="False" Width="348px"></asp:Label>
                       </td>
                   </tr>
               </table>
@@ -85,32 +86,37 @@
                 <tr>
                   <td>
                     <h3>
-                        Choose The Method :</h3>
+                        Check Your Reimbursement Status :</h3>
                       <p>
-                          <asp:RadioButton ID="RadioButton1" runat="server" GroupName="Group2" OnCheckedChanged="RadioButton1_CheckedChanged" Text="Request Number" />
-                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                          <asp:TextBox ID="TextBox3" runat="server" Enabled="False" Width="148px"></asp:TextBox>
-                      </p>
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Enter Your RID:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                          <asp:TextBox ID="TextBox3" runat="server" Width="148px"></asp:TextBox>
                       <p>
-                          <asp:RadioButton ID="RadioButton2" runat="server" GroupName="Group2" OnCheckedChanged="RadioButton2_CheckedChanged" Text="Date of Request" />
                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                          <asp:Calendar ID="Calendar1" runat="server" BackColor="White" BorderColor="#999999" CellPadding="4" DayNameFormat="Shortest" Enabled="False" Font-Names="Verdana" Font-Size="8pt" ForeColor="Black" Height="180px" SelectedDate="2018-06-09" VisibleDate="2018-06-09" Width="200px">
-                              <DayHeaderStyle BackColor="#CCCCCC" Font-Bold="True" Font-Size="7pt" />
-                              <NextPrevStyle VerticalAlign="Bottom" />
-                              <OtherMonthDayStyle ForeColor="#808080" />
-                              <SelectedDayStyle BackColor="#666666" Font-Bold="True" ForeColor="White" />
-                              <SelectorStyle BackColor="#CCCCCC" />
-                              <TitleStyle BackColor="#999999" BorderColor="Black" Font-Bold="True" />
-                              <TodayDayStyle BackColor="#CCCCCC" ForeColor="Black" />
-                              <WeekendDayStyle BackColor="#FFFFCC" />
-                          </asp:Calendar>
+                          </p>
+                      <p>
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<asp:Button ID="Button2" runat="server" Text="Check Status" OnClick="Button2_Click" />
+                          &nbsp;
+                          <asp:Label ID="Label2" runat="server" ForeColor="Red" Visible="False"></asp:Label>
                       </p>
                       <p>
-                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<asp:Button ID="Button2" runat="server" Text="Check Status" />
-                      </p>
-                      <p>
-                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<asp:Table ID="Table1" runat="server" style="margin-left: 0px" Height="54px" Width="85px">
-                              <asp:TableRow runat="server" TableSection="TableHeader">
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<asp:Table ID="Table1" runat="server" BorderWidth="2px" Font-Names="Palatino">
+                              <asp:TableHeaderRow 
+                                runat="server" 
+                                ForeColor="Black"
+                                BackColor="OliveDrab"
+                                Font-Bold="true"
+                                CellPadding="5"
+                                CellSpacing="5">
+                                    <asp:TableHeaderCell>RID</asp:TableHeaderCell>
+                                    <asp:TableHeaderCell>Patient Name</asp:TableHeaderCell>
+                                    <asp:TableHeaderCell>Amount</asp:TableHeaderCell>
+                                    <asp:TableHeaderCell>Amount Sanctioned</asp:TableHeaderCell>
+                                </asp:TableHeaderRow>
+                              <asp:TableRow runat="server" ID="row">
+                                  <asp:TableCell runat="server" ID="rid"></asp:TableCell>
+                                  <asp:TableCell runat="server" ID="name"></asp:TableCell>
+                                  <asp:TableCell runat="server" ID="amt"></asp:TableCell>
+                                  <asp:TableCell runat="server" ID="status"></asp:TableCell>
                               </asp:TableRow>
                           </asp:Table>
                       </p>
@@ -121,17 +127,6 @@
                   <tr>
                       <td></td>
                   </tr>
-              </table>
-            </asp:View>
-            <asp:View ID="View3" runat="server">
-              <table style="width: 100%; border-width: 1px; border-color: #666; border-style: solid">
-                <tr>
-                  <td>
-                    <h3>
-                      View 3
-                    </h3>
-                  </td>
-                </tr>
               </table>
             </asp:View>
           </asp:MultiView>

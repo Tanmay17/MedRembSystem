@@ -31,3 +31,6 @@ E:\WebApplication1\WebApplication1\bin\Microsoft.CodeDom.Providers.DotNetCompile
 E:\WebApplication1\WebApplication1\obj\Debug\WebApplication1.csprojResolveAssemblyReference.cache
 E:\WebApplication1\WebApplication1\obj\Debug\WebApplication1.dll
 E:\WebApplication1\WebApplication1\obj\Debug\WebApplication1.pdb
+E:\WebApplication1\WebApplication1\bin\Oracle.DataAccess.dll
+E:\WebApplication1\WebApplication1\bin\UIAComWrapper.dll
+E:\WebApplication1\WebApplication1\bin\Interop.UIAutomationClient.dll
